@@ -28,7 +28,8 @@ const initRoutes = app => {
 
   // Transfer/Transaction Routes
   // app.get("/transaction/:txnId/status", _checkAuthentication, _getBlockChain, TransactionController.status);
-  app.post("/transaction/:txnId/write", _checkAuthentication, _getBlockChain, TransactionController.wtrx);
+  app.post("/transaction/writetx", _checkAuthentication, _getBlockChain, TransactionController.wtrx);
+  app.post("/transaction/writetxln", _checkAuthentication, _getBlockChain, TransactionController.wtrxln);
 };
 
 export default initRoutes;
