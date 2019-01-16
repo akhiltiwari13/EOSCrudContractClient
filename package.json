@@ -4,7 +4,7 @@
   "description": "EOS blockchain utilities for Icury",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './test/**/*.spec.js'",
+    "test": "mocha --timeout 200000 ",
     "start": "node server.js"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "bignumber.js": "^8.0.1",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
     "compression": "^1.7.3",
     "convict": "^4.4.0",
     "cron": "^1.6.0",
