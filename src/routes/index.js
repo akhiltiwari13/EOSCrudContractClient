@@ -17,19 +17,12 @@ const _getSvcStatus = (req, res) => Responder.success(res, 'Service is up');;
 const initRoutes = app => {
   // Health Check Routes
   app.get('/healthCheck', _checkAuthentication, _getSvcStatus);
-
-  // Coin Routes
-  // app.get('/coin/:coinId/price', _checkAuthentication, _getBlockChain, CoinController.getPrice);
-
-  // Account Routes
-  // app.get("/account/:accountName/balance", _checkAuthentication, _getBlockChain, AccountController.getBalance);
-  // app.get("/account/:accountName/txnHistory", _checkAuthentication, _getBlockChain, AccountController.getTxnHistory);
-  // app.post("/account", _checkAuthentication, AccountController.createAccount);
-
-  // Transfer/Transaction Routes
-  // app.get("/transaction/:txnId/status", _checkAuthentication, _getBlockChain, TransactionController.status);
-  app.post("/transaction/writetx", _checkAuthentication, _getBlockChain, TransactionController.wtrx);
-  app.post("/transaction/writetxln", _checkAuthentication, _getBlockChain, TransactionController.wtrxln);
+  
+  // transaction/* Routes
+  app.get("/transaction/gettrxln", _checkAuthentication, _getBlockChain, TransactionController.gtrxln);
+  app.get("/transaction/gettrx", _checkAuthentication, _getBlockChain, TransactionController.gtrx);
+  app.post("/transaction/writetrx", _checkAuthentication, _getBlockChain, TransactionController.wtrx);
+  app.post("/transaction/writetrxln", _checkAuthentication, _getBlockChain, TransactionController.wtrxln);
 };
 
 export default initRoutes;
