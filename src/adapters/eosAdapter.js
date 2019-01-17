@@ -8,7 +8,7 @@ import JsSignatureProvider from 'eosjs/dist/eosjs-jssig'; // development only
 const EOSBaseUrl = envConfig.get("eosBaseUrl");
 const { TextEncoder, TextDecoder } = require('util');
 const fetch = require('node-fetch');                            // node only; not needed in browsers
-const rpc = new JsonRpc('http://127.0.0.1:8888', { fetch });
+const rpc = new JsonRpc('http://51.254.99.43:8888', { fetch });
 const defaultPrivateKey = "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3";
 const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
 const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
@@ -63,7 +63,7 @@ class EOSAdapter {
 
   writeTransactionLine = req =>
     new Promise(async (resolve, reject) => {
-
+      console.log("@@@@@")
       if (!req.body.transactionLineId) {
         return reject(new BadRequestError('transactionLineId is mandatory'));
       }
@@ -81,9 +81,6 @@ class EOSAdapter {
       }
       if (!req.body.quantity) {
         return reject(new BadRequestError('quantity is mandatory'));
-      }
-      if (!req.body.vat) {
-        return reject(new BadRequestError('vat is mandatory'));
       }
 
       const transactionLineId = req.body.transactionLineId; console.log("transactionLineId: ", transactionLineId);
@@ -119,7 +116,8 @@ class EOSAdapter {
           expireSeconds: 30,
         })
 
-      return resolve(result).catch(reject)
+        console.log(result);
+        return resolve(result).catch(reject)
     })
 
     getTransaction = req =>

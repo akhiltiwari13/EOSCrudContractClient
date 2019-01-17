@@ -18,6 +18,7 @@ This readme guides you through two processes:-
 
 # Postman Collection
 - "to do"
+- https://www.getpostman.com/collections/3af34e11e0d6a0b5637d
 
 
 # Setup step
