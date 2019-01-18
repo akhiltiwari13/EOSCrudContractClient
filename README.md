@@ -22,12 +22,12 @@ This readme guides you through two processes:-
 
 
 # Setup step
-- npm install
-- npm start
+- npm install 
+- npm start >> service.log &
 
 
 # testnet
-- EOS => ws://192.168.10.81:11011 (testnet hosted locally)
+- EOS => ws://51.254.99.43:11011 (testnet hosted on this server)
 
 
 # work in progress:
